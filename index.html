@@ -1,0 +1,463 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Me | Ralph Andrei C. Cruz</title>
+
+    <style>
+
+        /* GENERAL SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #071a35;
+            color: white;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            background-color: #041126;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .logo span {
+            color: #38bdf8;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav ul a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul a:hover {
+            color: #38bdf8;
+        }
+
+        /* HOME SECTION */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 60px 8%;
+            gap: 40px;
+            background: linear-gradient(
+                120deg,
+                #071a35,
+                #123c70,
+                #1d5fa7
+            );
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h3 {
+            color: #60c7ff;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+        }
+
+        .hero-text h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-text h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            color: #dbeafe;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        /* BUTTON */
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #1683d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #07519b;
+        }
+
+        /* PROFILE PHOTO */
+        .hero-image img {
+            width: 380px;
+            height: 480px;
+            object-fit: cover;
+            object-position: center;
+            border: 4px solid #38bdf8;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.4);
+        }
+
+        /* ABOUT ME SECTION */
+        .about {
+            padding: 90px 12%;
+            text-align: center;
+            background-color: #0b2345;
+        }
+
+        .about h1,
+        .hobbies h1,
+        .favorites h1 {
+            font-size: 35px;
+            margin-bottom: 30px;
+        }
+
+        .about h1 span,
+        .hobbies h1 span,
+        .favorites h1 span {
+            color: #38bdf8;
+        }
+
+        .about p {
+            max-width: 850px;
+            margin: auto;
+            color: #dbeafe;
+            font-size: 17px;
+            line-height: 2;
+        }
+
+        /* HOBBIES SECTION */
+        .hobbies {
+            background-color: #071a35;
+            padding: 90px 10%;
+            text-align: center;
+        }
+
+        .hobby-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hobby-card {
+            background-color: #12345a;
+            width: 320px;
+            padding: 35px;
+            border-radius: 15px;
+            border-bottom: 4px solid #38bdf8;
+            transition: 0.3s;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            background-color: #194675;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hobby-card h2 {
+            color: #60c7ff;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card p {
+            color: #dbeafe;
+            line-height: 1.8;
+        }
+
+        /* FAVORITES SECTION */
+        .favorites {
+            padding: 90px 10%;
+            text-align: center;
+            background-color: #0b2345;
+        }
+
+        .favorite-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .favorite-item {
+            background-color: #12345a;
+            border: 1px solid #38bdf8;
+            padding: 25px 35px;
+            border-radius: 10px;
+            transition: 0.3s;
+            color: white;
+        }
+
+        .favorite-item:hover {
+            background-color: #1683d8;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #041126;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        footer h2 {
+            color: #38bdf8;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #dbeafe;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            margin-top: 25px;
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 35px;
+            }
+
+            .hero-text h2 {
+                font-size: 35px;
+            }
+
+            .hero-image img {
+                width: 100%;
+                max-width: 350px;
+                height: 400px;
+            }
+
+            .hobby-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hobby-card {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav>
+            <h2 class="logo">RALPH<span>.</span></h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#favorites">Favorites</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h3>WELCOME TO MY PERSONAL WEBSITE</h3>
+
+            <h1>Hi! I'm <span>Ralph Andrei</span></h1>
+
+            <h2>C. Cruz</h2>
+
+            <p>
+                A basketball enthusiast and movie lover.
+                I enjoy playing basketball, watching movies,
+                and making unforgettable memories.
+            </p>
+
+            <a href="#about" class="btn">ABOUT ME</a>
+
+        </div>
+
+        <div class="hero-image">
+            <img src="ralph-basketball.jpg"
+                 alt="Ralph Andrei playing basketball">
+        </div>
+
+    </section>
+
+    <!-- ABOUT ME SECTION -->
+    <section class="about" id="about">
+
+        <h1>ABOUT <span>ME</span></h1>
+
+        <p>
+            Hello! My name is Ralph Andrei C. Cruz.
+            I am a person who loves sports and entertainment.
+            One of my greatest interests is basketball because
+            it allows me to stay active, improve my skills,
+            and learn the importance of teamwork and discipline.
+
+            Aside from basketball, I also enjoy watching movies.
+            Watching movies is one of my favorite ways to relax
+            and enjoy my free time. I love experiencing different
+            stories, exciting scenes, and interesting characters.
+
+            These hobbies are a big part of who I am!
+        </p>
+
+    </section>
+
+    <!-- HOBBIES SECTION -->
+    <section class="hobbies" id="hobbies">
+
+        <h1>MY <span>HOBBIES</span></h1>
+
+        <div class="hobby-container">
+
+            <!-- BASKETBALL -->
+            <div class="hobby-card">
+
+                <div class="icon">🏀</div>
+
+                <h2>Playing Basketball</h2>
+
+                <p>
+                    Basketball is one of my favorite sports.
+                    I enjoy playing on the court, practicing
+                    my skills, and competing with other players.
+                    It teaches me teamwork, confidence,
+                    and determination.
+                </p>
+
+            </div>
+
+            <!-- MOVIES -->
+            <div class="hobby-card">
+
+                <div class="icon">🎬</div>
+
+                <h2>Watching Movies</h2>
+
+                <p>
+                    I love watching movies during my free time.
+                    Whether it is action, comedy, adventure,
+                    or drama, I enjoy discovering different
+                    stories and entertaining films.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FAVORITES SECTION -->
+    <section class="favorites" id="favorites">
+
+        <h1>MY FAVORITE <span>THINGS</span></h1>
+
+        <div class="favorite-container">
+
+            <div class="favorite-item">
+                🏀 Basketball
+            </div>
+
+            <div class="favorite-item">
+                🎥 Movies
+            </div>
+
+            <div class="favorite-item">
+                🍿 Movie Time
+            </div>
+
+            <div class="favorite-item">
+                ⛹️ Playing Sports
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>RALPH ANDREI C. CRUZ</h2>
+
+        <p>
+            Basketball is my passion. Movies are my escape.
+        </p>
+
+        <p class="copyright">
+            © 2026 Ralph Andrei C. Cruz | All Rights Reserved
+        </p>
+
+    </footer>
+
+</body>
+</html>
